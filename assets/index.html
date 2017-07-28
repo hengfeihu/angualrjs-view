@@ -12,30 +12,26 @@
 </head>
 <body>
 <div class="container-fluid" style="padding: 0">
-    <nav class="navbar navbar-default">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <a class="navbar-brand" ui-sref="index">首页</a>
-            </div>
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav">
-                    <li><a ui-sref="rcgz.first" ui-sref-active="active">日常工作</a></li>
-                    <li><a ui-sref="tzyj" ui-sref-active="active">投资研究</a></li>
+    <div class="navbar-header">
+        <a class="navbar-brand" ui-sref="index">首页</a>
+    </div>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+            <li><a ui-sref="rcgz.first" ui-sref-active="active">日常工作</a></li>
+            <li><a ui-sref="tzyj" ui-sref-active="active">投资研究</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="#">个人中心</a></li>
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                   aria-expanded="false">衡飞虎 <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li><a href="#">退出</a></li>
                 </ul>
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#">个人中心</a></li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                           aria-expanded="false">衡飞虎 <span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#">退出</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-    <div class="row" ui-view=""></div>
+            </li>
+        </ul>
+    </div>
+    <div class="row" ui-view="" style="margin: 0"></div>
 </div>
 </body>
 <script src="js/rcgz.js"></script>
