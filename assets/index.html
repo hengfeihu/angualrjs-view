@@ -2,6 +2,7 @@
 <html lang="en" ng-app="app">
 <head>
     <meta charset="UTF-8">
+    <base href="/angualrjs-view/assets/">
     <title>Title</title>
     <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
     <script src="js/jquery.min.js"></script>
@@ -11,16 +12,49 @@
 </head>
 <body>
 <div class="container-fluid" style="padding: 0">
-    <ng-include src="'views/top.html'"></ng-include>
-    <div class="row">
-        <div class="col-md-2" ng-include="'views/left.html'"></div>
-        <div class="col-md-10" ng-include="'views/main.html'"></div>
-    </div>
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" ui-sref="index">首页</a>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li><a ui-sref="rcgz.first" ui-sref-active="active">日常工作</a></li>
+                    <li><a ui-sref="tzyj" ui-sref-active="active">投资研究</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#">个人中心</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                           aria-expanded="false">衡飞虎 <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">退出</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="row" ui-view=""></div>
 </div>
 </body>
+<script src="js/rcgz.js"></script>
 <script>
-    angular.module("app", ['ui.router']).controller("ctrl", function ($scope) {
-        $scope.text = "hello world!";
-    })
+    angular.module("app", ['ui.router', 'rcgz'])
+        .run(function ($rootScope, $state, $stateParams) {
+            $rootScope.$state = $state;
+            $rootScope.$stateParams = $stateParams;
+        })
+        .config(function ($locationProvider, $stateProvider, $urlRouterProvider) {
+            $stateProvider.state("index", {
+                url: "/index",
+                templateUrl: 'views/main.html',
+                controller: function ($scope) {
+                    $scope.text = "哈哈";
+                }
+            });
+            $urlRouterProvider.otherwise("index");
+            //$locationProvider.html5Mode(true).hashPrefix('!')
+        })
 </script>
 </html>
