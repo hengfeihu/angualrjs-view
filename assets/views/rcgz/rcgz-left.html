@@ -1,11 +1,8 @@
 <div class="col-lg-1">
     <ul class="nav nav-list">
-        <li ng-class="{active:$state.includes('rcgz.first')}">
-            <a ui-sref="rcgz.first">{{text}}</a>
-        </li>
         <li ui-sref-active="active" ng-repeat="l in list">
             <a ui-sref="rcgz.right({id:l.id})">{{l.title}}</a>
         </li>
     </ul>
 </div>
-<div class="col-lg-11" ui-view=""></div>
+<div class="col-lg-11" ui-view="" id="test111"></div>

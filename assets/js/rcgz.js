@@ -6,7 +6,7 @@ angular.module('rcgz', []).config(function ($stateProvider) {
         url: "/rcgz",
         templateUrl: 'views/rcgz/rcgz-left.html',
         controller: function ($scope) {
-            $scope.text = "日常工作-左边";
+            //$scope.text = "日常工作-左边";
             $scope.list = [
                 {id: 1, title: "会议1"},
                 {id: 2, title: "会议2"},
